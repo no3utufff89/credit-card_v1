@@ -20,14 +20,20 @@ export const createApp = () => {
         el('input', {
             className: 'input input__holder',
             type: 'text',
+            name: 'name'
         }));
+
+    const holderValidate = el('h2.holder-validate')
 
     const cardNumberInput = el('.form__input-wrap form__input-wrap_number',
         el('label.form__label form__number-label','Card Number'),
         el('input', {
             className: 'input input__number',
             id: 'cardNumber',
+            name: 'number'
         }));
+
+    const numberValidate = el('h2.number-validate')
 
     const cardExpiryInput = el('.form__input-wrap form__input-wrap_date',
         el('label.form__label form__date-label','Card Expiry'),
@@ -43,10 +49,13 @@ export const createApp = () => {
             className: 'input input__cvv',
             type: 'text',
             maxLength: 3,
+            name: 'cvv'
         }));
 
+    const cvvValidate = el('h2.cvv-validate')
+
     const button = el('button.form__button', 'CHECK OUT')
-    setChildren(form, cardHolderInput, cardNumberInput, cardExpiryInput, cardCvvInput, button)
+    setChildren(form, cardHolderInput, holderValidate, cardNumberInput, numberValidate, cardExpiryInput, cardCvvInput, cvvValidate, button)
     const card = el('.card', [el('p.secure', 'Secure Checkout'), creditCard, form]);
 
 
